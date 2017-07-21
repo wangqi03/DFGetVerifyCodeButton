@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   s.description  = <<-DESC
+		A simple category to help you implement a count down button
                    DESC
 
   s.homepage     = "https://github.com/wangqi03/DFGetVerifyCodeButton"

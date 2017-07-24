@@ -21,10 +21,10 @@
 
 - (void)startCountDownWithSeconds:(NSInteger)second eachSecondEnunmeration:(DFVerifyCodeEnumerationBlock)enumeration andCompletion:(DFVerifyCodeCompletionBlock)completion {
     [self.df_timer invalidate];
-    self.df_seconds = second;
+    self.df_endDate = [NSDate dateWithTimeIntervalSinceNow:second];
     
-    self.userInteractionEnabled = NO;
-    enumeration(self.df_seconds);
+//    self.userInteractionEnabled = NO;
+    enumeration((NSInteger)[self.df_endDate timeIntervalSinceNow]);
     
     DFVerifyCodeButtonPasser* passer = [[DFVerifyCodeButtonPasser alloc] init];
     passer.completion = completion;
@@ -35,23 +35,22 @@
 
 - (void)countDown:(NSTimer*)timer {
     DFVerifyCodeButtonPasser* passer = timer.userInfo;
-    self.df_seconds = self.df_seconds-1;
-    if (self.df_seconds>0) {
-        passer.enumeration(self.df_seconds);
+    if ([self.df_endDate timeIntervalSinceNow]>0) {
+        passer.enumeration((NSInteger)([self.df_endDate timeIntervalSinceNow]));
     } else {
         passer.completion();
-        self.userInteractionEnabled = YES;
+//        self.userInteractionEnabled = YES;
         [self.df_timer invalidate];
         self.df_timer = nil;
     }
 }
 
-- (NSInteger)df_seconds {
-    return [objc_getAssociatedObject(self, DF_SECONDS_TO_COUNT_DOWN_RUNTIME_KEY) integerValue];
+- (NSDate*)df_endDate {
+    return objc_getAssociatedObject(self, DF_SECONDS_TO_COUNT_DOWN_RUNTIME_KEY);
 }
 
-- (void)setDf_seconds:(NSInteger)seconds {
-    objc_setAssociatedObject(self, DF_SECONDS_TO_COUNT_DOWN_RUNTIME_KEY, [NSString stringWithFormat:@"%ld",seconds], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setDf_endDate:(NSDate*)df_endDate {
+    objc_setAssociatedObject(self, DF_SECONDS_TO_COUNT_DOWN_RUNTIME_KEY, df_endDate, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 - (NSTimer*)df_timer {

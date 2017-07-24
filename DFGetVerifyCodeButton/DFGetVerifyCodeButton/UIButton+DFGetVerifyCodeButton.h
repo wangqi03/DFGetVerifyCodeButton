@@ -16,6 +16,6 @@ typedef void (^DFVerifyCodeCompletionBlock)();
 - (void)startCountDownWithSeconds:(NSInteger)second eachSecondEnunmeration:(DFVerifyCodeEnumerationBlock)enumeration andCompletion:(DFVerifyCodeCompletionBlock)completion;
 
 @property (nonatomic,strong) NSTimer* df_timer;
-@property (nonatomic) NSInteger df_seconds;
+@property (nonatomic,strong) NSDate* df_endDate;
 
 @end

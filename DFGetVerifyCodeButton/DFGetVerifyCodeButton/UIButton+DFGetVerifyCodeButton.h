@@ -15,6 +15,7 @@ typedef void (^DFVerifyCodeCompletionBlock)();
 
 - (void)startCountDownWithSeconds:(NSInteger)second eachSecondEnunmeration:(DFVerifyCodeEnumerationBlock)enumeration andCompletion:(DFVerifyCodeCompletionBlock)completion;
 - (void)startCountDownWithSeconds:(NSInteger)second withGlobalKey:(NSString*)key eachSecondEnunmeration:(DFVerifyCodeEnumerationBlock)enumeration andCompletion:(DFVerifyCodeCompletionBlock)completion;
+- (void)recoverCountDownWithGlobalKey:(NSString*)key eachSecondEnunmeration:(DFVerifyCodeEnumerationBlock)enumeration andCompletion:(DFVerifyCodeCompletionBlock)completion;
 
 @property (nonatomic,strong) NSTimer* df_timer;
 @property (nonatomic,strong) NSDate* df_endDate;

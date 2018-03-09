@@ -43,6 +43,10 @@
     }
 }
 
+- (void)recoverCountDownWithGlobalKey:(NSString *)key eachSecondEnunmeration:(DFVerifyCodeEnumerationBlock)enumeration andCompletion:(DFVerifyCodeCompletionBlock)completion {
+    [[DFVerifyCodeGlobalDispatcher dispatcher] recoverCountDownBehaviourOfKey:key toButton:self eachSecondEnunmeration:enumeration andCompletion:completion];
+}
+
 - (void)countDown:(NSTimer*)timer {
     DFVerifyCodeButtonPasser* passer = timer.userInfo;
     if ([self.df_endDate timeIntervalSinceNow]>0) {

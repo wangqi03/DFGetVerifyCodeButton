@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "DFGetVerifyCodeButton"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "A simple category to help you implement a count down button"
 
   # This description is used to generate tags and improve search results.

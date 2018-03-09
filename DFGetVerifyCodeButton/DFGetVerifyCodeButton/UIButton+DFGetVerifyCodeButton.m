@@ -8,6 +8,7 @@
 
 #import "UIButton+DFGetVerifyCodeButton.h"
 #import <objc/runtime.h>
+#import "DFVerifyCodeGlobalDispatcher.h"
 
 #define DF_SECONDS_TO_COUNT_DOWN_RUNTIME_KEY "DF_SECONDS_TO_COUNT_DOWN_RUNTIME_KEY"
 #define DF_COUNT_DOWN_TIMER_RUNTIME_KEY "DF_COUNT_DOWN_TIMER_RUNTIME_KEY"
@@ -20,10 +21,15 @@
 @implementation UIButton (DFGetVerifyCodeButton)
 
 - (void)startCountDownWithSeconds:(NSInteger)second eachSecondEnunmeration:(DFVerifyCodeEnumerationBlock)enumeration andCompletion:(DFVerifyCodeCompletionBlock)completion {
+    [self startCountDownWithSeconds:second withGlobalKey:nil eachSecondEnunmeration:enumeration andCompletion:completion];
+}
+
+- (void)startCountDownWithSeconds:(NSInteger)second withGlobalKey:(NSString *)key eachSecondEnunmeration:(DFVerifyCodeEnumerationBlock)enumeration andCompletion:(DFVerifyCodeCompletionBlock)completion {
     [self.df_timer invalidate];
+    self.df_timer = nil;
     self.df_endDate = [NSDate dateWithTimeIntervalSinceNow:second];
     
-//    self.userInteractionEnabled = NO;
+    //    self.userInteractionEnabled = NO;
     enumeration((NSInteger)[self.df_endDate timeIntervalSinceNow]);
     
     DFVerifyCodeButtonPasser* passer = [[DFVerifyCodeButtonPasser alloc] init];
@@ -31,6 +37,10 @@
     passer.enumeration = enumeration;
     
     self.df_timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDown:) userInfo:passer repeats:YES];
+    
+    if (key.length) {
+        [[DFVerifyCodeGlobalDispatcher dispatcher] registerGlobalCountDownButton:self forKey:key];
+    }
 }
 
 - (void)countDown:(NSTimer*)timer {

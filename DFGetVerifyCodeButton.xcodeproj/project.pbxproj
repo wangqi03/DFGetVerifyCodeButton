@@ -15,6 +15,7 @@
 		60A42D721F226B80003B3931 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60A42D701F226B80003B3931 /* LaunchScreen.storyboard */; };
 		60A42D7D1F226B80003B3931 /* DFGetVerifyCodeButtonTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A42D7C1F226B80003B3931 /* DFGetVerifyCodeButtonTests.m */; };
 		60A42D8A1F226BBA003B3931 /* UIButton+DFGetVerifyCodeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 60A42D891F226BBA003B3931 /* UIButton+DFGetVerifyCodeButton.m */; };
+		AA7C61CF205232E000A58A99 /* DFVerifyCodeGlobalDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = AA7C61CE205232E000A58A99 /* DFVerifyCodeGlobalDispatcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		60A42D7E1F226B80003B3931 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60A42D881F226BBA003B3931 /* UIButton+DFGetVerifyCodeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+DFGetVerifyCodeButton.h"; sourceTree = "<group>"; };
 		60A42D891F226BBA003B3931 /* UIButton+DFGetVerifyCodeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+DFGetVerifyCodeButton.m"; sourceTree = "<group>"; };
+		AA7C61CD205232E000A58A99 /* DFVerifyCodeGlobalDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DFVerifyCodeGlobalDispatcher.h; sourceTree = "<group>"; };
+		AA7C61CE205232E000A58A99 /* DFVerifyCodeGlobalDispatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DFVerifyCodeGlobalDispatcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 			children = (
 				60A42D881F226BBA003B3931 /* UIButton+DFGetVerifyCodeButton.h */,
 				60A42D891F226BBA003B3931 /* UIButton+DFGetVerifyCodeButton.m */,
+				AA7C61CD205232E000A58A99 /* DFVerifyCodeGlobalDispatcher.h */,
+				AA7C61CE205232E000A58A99 /* DFVerifyCodeGlobalDispatcher.m */,
 			);
 			path = DFGetVerifyCodeButton;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 				60A42D6A1F226B80003B3931 /* ViewController.m in Sources */,
 				60A42D671F226B80003B3931 /* AppDelegate.m in Sources */,
 				60A42D641F226B80003B3931 /* main.m in Sources */,
+				AA7C61CF205232E000A58A99 /* DFVerifyCodeGlobalDispatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +438,7 @@
 				60A42D831F226B80003B3931 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60A42D841F226B80003B3931 /* Build configuration list for PBXNativeTarget "DFGetVerifyCodeButtonTests" */ = {
 			isa = XCConfigurationList;
@@ -440,6 +447,7 @@
 				60A42D861F226B80003B3931 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

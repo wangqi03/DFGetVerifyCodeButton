@@ -44,6 +44,9 @@
 - (void)recoverCountDownBehaviourOfKey:(NSString *)key toButton:(UIButton *)button eachSecondEnunmeration:(DFVerifyCodeEnumerationBlock)enumeration andCompletion:(DFVerifyCodeCompletionBlock)completion {
     UIButton* registeredButton = [self globalCountDownButtonForKey:key];
     if (!registeredButton) {
+        if (completion) {
+            completion();
+        }
         return;
     }
     

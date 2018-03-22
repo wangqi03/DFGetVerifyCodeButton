@@ -25,6 +25,10 @@
 
 - (void)registerGlobalCountDownButton:(UIButton *)button forKey:(NSString *)key {
     
+    if (button == [self globalCountDownButtonForKey:key]) {
+        return;
+    }
+    
     [[self globalCountDownButtonForKey:key].df_timer invalidate];
     [self globalCountDownButtonForKey:key].df_timer = nil;
     
